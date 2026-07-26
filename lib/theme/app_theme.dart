@@ -27,7 +27,7 @@ abstract final class AppTheme {
       titleLarge: GoogleFonts.playfairDisplay(fontWeight: FontWeight.w600),
     ),
     appBarTheme: const AppBarTheme(backgroundColor: ink, surfaceTintColor: Colors.transparent),
-    cardTheme: CardTheme(
+    cardTheme: CardThemeData(
       color: card,
       elevation: 0,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
