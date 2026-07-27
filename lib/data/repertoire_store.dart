@@ -7,10 +7,10 @@ class RepertoireStore extends ChangeNotifier {
 
   final List<PerformanceLog> _logs = [];
   List<PerformanceLog> get logs => List.unmodifiable(_logs);
-  List<Work> get works {
-    final byId = <String, Work>{};
+  List<Piece> get pieces {
+    final byId = <String, Piece>{};
     for (final log in _logs) {
-      byId[log.work.id] = log.work;
+      byId[log.piece.id] = log.piece;
     }
     return byId.values.toList();
   }

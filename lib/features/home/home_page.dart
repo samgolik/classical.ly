@@ -15,7 +15,7 @@ class HomePage extends StatelessWidget {
             Row(children: [Text('classical.ly', style: Theme.of(context).textTheme.headlineSmall?.copyWith(color: AppTheme.cream)), const Spacer(), const CircleAvatar(backgroundColor: AppTheme.gold, child: Text('S', style: TextStyle(color: AppTheme.ink, fontWeight: FontWeight.bold)))]),
             const SizedBox(height: 28), Text('Your musical life,\nbeautifully remembered.', style: Theme.of(context).textTheme.displaySmall), const SizedBox(height: 28),
             const SectionTitle('Your recent performances'),
-            if (logs.isEmpty) const _EmptyJournal() else ...logs.map((log) => WorkTile(work: log.work, trailing: Text(log.role, style: const TextStyle(color: AppTheme.muted, fontSize: 12)), onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => PieceDetailPage(work: log.work))))),
+            if (logs.isEmpty) const _EmptyJournal() else ...logs.map((log) => PieceTile(piece: log.piece, trailing: Text(log.role, style: const TextStyle(color: AppTheme.muted, fontSize: 12)), onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => PieceDetailPage(piece: log.piece))))),
           ]);
         },
       );

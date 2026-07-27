@@ -12,7 +12,7 @@ flutter pub get
 flutter run
 ```
 
-The prototype starts with an empty personal repertoire. Add a work through the Log tab and it will appear across Home, Search, and Profile for the current app session. A future persistence layer can replace `lib/data/repertoire_store.dart`.
+The prototype starts with an empty personal repertoire. Add a piece through the Log tab and it will appear across Home, Search, and Profile for the current app session. A future persistence layer can replace `lib/data/repertoire_store.dart`.
 
 ## Structure
 

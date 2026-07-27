@@ -14,9 +14,9 @@ class SectionTitle extends StatelessWidget {
       );
 }
 
-class WorkTile extends StatelessWidget {
-  const WorkTile({required this.work, this.trailing, this.onTap, super.key});
-  final Work work;
+class PieceTile extends StatelessWidget {
+  const PieceTile({required this.piece, this.trailing, this.onTap, super.key});
+  final Piece piece;
   final Widget? trailing;
   final VoidCallback? onTap;
   @override
@@ -25,8 +25,8 @@ class WorkTile extends StatelessWidget {
           onTap: onTap,
           contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 7),
           leading: Container(width: 44, height: 44, decoration: BoxDecoration(color: AppTheme.gold.withValues(alpha: .14), borderRadius: BorderRadius.circular(12)), child: const Icon(Icons.music_note_rounded, color: AppTheme.gold)),
-          title: Text(work.title, maxLines: 1, overflow: TextOverflow.ellipsis, style: const TextStyle(fontWeight: FontWeight.w700)),
-          subtitle: Text('${work.composer} · ${work.subtitle}', maxLines: 1, overflow: TextOverflow.ellipsis),
+          title: Text(piece.title, maxLines: 1, overflow: TextOverflow.ellipsis, style: const TextStyle(fontWeight: FontWeight.w700)),
+          subtitle: Text('${piece.composer} · ${piece.subtitle}', maxLines: 1, overflow: TextOverflow.ellipsis),
           trailing: trailing ?? const Icon(Icons.chevron_right_rounded),
         ),
       );
