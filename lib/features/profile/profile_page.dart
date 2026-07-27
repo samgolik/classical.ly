@@ -15,7 +15,7 @@ class ProfilePage extends StatelessWidget {
       const SizedBox(height: 28), Card(child: Padding(padding: const EdgeInsets.symmetric(vertical: 17), child: Row(children: [Expanded(child: _ProfileStat(value: RepertoireStore.instance.works.length.toString(), label: 'works played')), Expanded(child: _ProfileStat(value: logs.length.toString(), label: 'performances')), const Expanded(child: _ProfileStat(value: '—', label: 'day streak'))]))),
       const SizedBox(height: 30), const SectionTitle('Recently performed'),
       if (logs.isEmpty) const Text('Your logged performances will appear here.', style: TextStyle(color: AppTheme.muted)) else ...logs.map((log) => WorkTile(work: log.work, trailing: Text(log.role.isEmpty ? 'Performer' : log.role, style: const TextStyle(color: AppTheme.muted, fontSize: 12)), onTap: () => _open(context, log.work))),
-    ];
+    ]);
   });
   void _open(BuildContext context, Work work) => Navigator.push(context, MaterialPageRoute(builder: (_) => PieceDetailPage(work: work)));
 }
