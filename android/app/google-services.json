@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1067398640227",
+    "project_id": "classical-ly",
+    "storage_bucket": "classical-ly.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1067398640227:android:2070487ba827c4c0d6be56",
+        "android_client_info": {
+          "package_name": "com.beattheclockstudios.classically"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBfh-HR_sCJfFAthzxAIKbv-ddfWSrNgf8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

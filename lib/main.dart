@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'data/profile_store.dart';
+import 'firebase_options.dart';
 import 'features/onboarding/onboarding_flow.dart';
 import 'features/onboarding/splash_screen.dart';
 import 'theme/app_theme.dart';
 import 'features/shell/app_shell.dart';
 
-void main() => runApp(const ClassicalLyApp());
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
+  runApp(const ClassicalLyApp());
+}
 
 class ClassicalLyApp extends StatefulWidget {
   const ClassicalLyApp({super.key});

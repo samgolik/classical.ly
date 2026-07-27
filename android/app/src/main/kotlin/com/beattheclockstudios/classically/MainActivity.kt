@@ -1,4 +1,4 @@
-package com.example.classical_ly
+package com.beattheclockstudios.classically
 
 import io.flutter.embedding.android.FlutterActivity
 

@@ -9,6 +9,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  firebase_core: ^4.12.1
   google_fonts: ^6.2.1
   shared_preferences: ^2.3.2
   url_launcher: ^6.3.1
