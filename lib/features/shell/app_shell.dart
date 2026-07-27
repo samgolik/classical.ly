@@ -3,6 +3,7 @@ import '../home/home_page.dart';
 import '../search/search_page.dart';
 import '../log/log_page.dart';
 import '../profile/profile_page.dart';
+import '../../data/catalog_store.dart';
 
 class AppShell extends StatefulWidget {
   const AppShell({super.key});
@@ -11,6 +12,11 @@ class AppShell extends StatefulWidget {
 }
 class _AppShellState extends State<AppShell> {
   int index = 0;
+  @override
+  void initState() {
+    super.initState();
+    CatalogStore.instance.start();
+  }
   @override
   Widget build(BuildContext context) {
     final pages = [const HomePage(), const SearchPage(), const LogPage(), const ProfilePage()];
