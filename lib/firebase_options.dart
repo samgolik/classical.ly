@@ -27,6 +27,5 @@ abstract final class DefaultFirebaseOptions {
     messagingSenderId: '1067398640227',
     projectId: 'classical-ly',
     storageBucket: 'classical-ly.firebasestorage.app',
-    androidPackageName: 'com.beattheclockstudios.classically',
   );
 }
