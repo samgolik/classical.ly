@@ -1,13 +1,9 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 class ProfileStore extends ChangeNotifier {
   ProfileStore._();
   static final instance = ProfileStore._();
-
-  static const _completedKey = 'onboarding_completed';
-  static const _nameKey = 'profile_name';
-  static const _instrumentKey = 'profile_instrument';
 
   bool _isComplete = false;
   String _name = '';
@@ -18,22 +14,29 @@ class ProfileStore extends ChangeNotifier {
   String get instrument => _instrument;
   String get initial => _name.isEmpty ? '♪' : _name.substring(0, 1).toUpperCase();
 
-  Future<void> load() async {
-    final prefs = await SharedPreferences.getInstance();
-    _isComplete = prefs.getBool(_completedKey) ?? false;
-    _name = prefs.getString(_nameKey) ?? '';
-    _instrument = prefs.getString(_instrumentKey) ?? '';
+  Future<void> loadForUser(String userId) async {
+    _isComplete = false;
+    _name = '';
+    _instrument = '';
+    final snapshot = await FirebaseFirestore.instance.collection('users').doc(userId).get();
+    final data = snapshot.data();
+    if (data != null) {
+      _name = data['name'] as String? ?? '';
+      _instrument = data['instrument'] as String? ?? '';
+      _isComplete = _name.isNotEmpty && _instrument.isNotEmpty;
+    }
     notifyListeners();
   }
 
-  Future<void> complete({required String name, required String instrument}) async {
+  Future<void> complete({required String userId, required String name, required String instrument}) async {
     _name = name.trim();
     _instrument = instrument.trim();
+    await FirebaseFirestore.instance.collection('users').doc(userId).set({
+      'name': _name,
+      'instrument': _instrument,
+      'updatedAt': FieldValue.serverTimestamp(),
+    }, SetOptions(merge: true));
     _isComplete = true;
     notifyListeners();
-    final prefs = await SharedPreferences.getInstance();
-    await prefs.setBool(_completedKey, true);
-    await prefs.setString(_nameKey, _name);
-    await prefs.setString(_instrumentKey, _instrument);
   }
 }

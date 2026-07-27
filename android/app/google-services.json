@@ -12,7 +12,12 @@
           "package_name": "com.beattheclockstudios.classically"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "1067398640227-8asgtvabvc18ihp93qa1heksv02nfsdj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyBfh-HR_sCJfFAthzxAIKbv-ddfWSrNgf8"
@@ -20,7 +25,19 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1067398640227-8asgtvabvc18ihp93qa1heksv02nfsdj.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1067398640227-9fb06mmtvhfovif665o7pp952p0ft6bp.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.beattheclockstudios.classically"
+              }
+            }
+          ]
         }
       }
     }

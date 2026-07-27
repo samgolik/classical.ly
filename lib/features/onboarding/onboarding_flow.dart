@@ -4,7 +4,9 @@ import '../../theme/app_theme.dart';
 import '../../widgets/instrument_picker.dart';
 
 class OnboardingFlow extends StatefulWidget {
-  const OnboardingFlow({required this.onComplete, super.key});
+  const OnboardingFlow({required this.userId, required this.initialName, required this.onComplete, super.key});
+  final String userId;
+  final String initialName;
   final VoidCallback onComplete;
   @override
   State<OnboardingFlow> createState() => _OnboardingFlowState();
@@ -15,10 +17,11 @@ class _OnboardingFlowState extends State<OnboardingFlow> {
   final name = TextEditingController();
   String instrument = '';
   int page = 0;
+  @override void initState() { super.initState(); name.text = widget.initialName; }
   @override void dispose() { controller.dispose(); name.dispose(); super.dispose(); }
   Future<void> finish() async {
     if (name.text.trim().isEmpty || instrument.isEmpty) { ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Tell us your name and primary instrument.'))); return; }
-    await ProfileStore.instance.complete(name: name.text, instrument: instrument);
+    await ProfileStore.instance.complete(userId: widget.userId, name: name.text, instrument: instrument);
     widget.onComplete();
   }
   Future<void> chooseInstrument() async {
