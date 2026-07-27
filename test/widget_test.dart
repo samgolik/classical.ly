@@ -5,6 +5,6 @@ void main() {
   testWidgets('shows the repertoire feed', (tester) async {
     await tester.pumpWidget(const ClassicalLyApp());
     expect(find.text('classical.ly'), findsOneWidget);
-    expect(find.text('From your circle'), findsOneWidget);
+    expect(find.text('Your recent performances'), findsOneWidget);
   });
 }
